@@ -10,8 +10,18 @@ import {
 }  from '@mui/material';
 import Todo from "../todo/Todo";
 import FetchList from "../fetchList/FetchList";
+import { useSelector, useDispatch } from 'react-redux';
+import { appSelector, appActions } from '../../redux/appRedux';
 
 const Dashboard = () => {
+
+    const dispatch = useDispatch()
+
+    useEffect(() =>(
+        dispatch(appActions.setPageTitle("TABLERO"))
+
+    ),[ ])
+
     return (
         <Grid container spacing={3} >
             <Grid item xs={12}>

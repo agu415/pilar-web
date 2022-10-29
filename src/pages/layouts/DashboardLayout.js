@@ -15,6 +15,8 @@ import {
     Collapse,
     Popover,
     MenuItem as MenuItemMui,
+    Divider,
+    Stack
 }  from '@mui/material';
 
 import React, {Children, useEffect, useState, useRef} from 'react';
@@ -23,6 +25,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { drawerMenu, popMenu } from '../../constants/menu';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { useSelector, useDispatch } from 'react-redux';
+import { appSelector, appActions } from '../../redux/appRedux';
+
 
 const drawerWidth = 280
 
@@ -161,6 +166,8 @@ component={RouterLink} onClick={()=>setOpen(false)} sx={{py:1, px:2.5}}
    
 
 const DahsboardLayout = () => { 
+    const dispatch = useDispatch()
+    const pageTitle = useSelector(appSelector.pageTitle)
     const [open, setOpen] = useState(false)
 
     return (
@@ -170,9 +177,15 @@ const DahsboardLayout = () => {
                     <Box px={2} sx={{cursor:"pointer"}} >
                         <MenuIcon sx={{color:"white"}} onClick={()=>setOpen(true)} />
                     </Box>
+                    <Stack direction="row" spacing={2}>
                     <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }} >
                         Pilar Tecno Web
                     </Typography>
+                    <Divider orientation='vertical'  variant='middle' flexItem/>
+                    <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }} >
+                        {pageTitle}
+                    </Typography>
+                    </Stack>
                     <PopMenu />
                 </Toolbar>
             </AppBar>
