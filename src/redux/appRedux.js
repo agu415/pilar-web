@@ -3,21 +3,28 @@ const ADD_TODO = "ADD_TODO";
 const COMPLETE_TODO = "COMPLETE_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const SET_PAGE_NAME = "SET_PAGE_NAME";
+const SET_LOADING = "SET_LOADING"; 
 
 ///State inicial
 const stateInitial = {
     pageTitle:"",
+    loading: false,
     todo: [],
 }
 
 ///Selectores
 export const appSelector = {
     todo: (state) => state.todo,
-    pageTitle: (state) => state.pageTitle
+    pageTitle: (state) => state.pageTitle,
+    loading: (state) => state.loading
 }
 
 ///Actions
 export const appActions = {
+    loading: (payload) => ({
+        type: SET_LOADING,
+        payload,
+    }),
     setPageTitle: (title) => ({
         type: SET_PAGE_NAME,
         title,
@@ -44,6 +51,12 @@ export const appReducer = (state = stateInitial, action) => {
             return{
                 ...state,
                 pageTitle: action.title
+                
+            }
+        case SET_LOADING:
+            return{
+                ...state,
+                loading: action.payload
                 
             }
         case ADD_TODO:

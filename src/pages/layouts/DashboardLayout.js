@@ -27,6 +27,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { useSelector, useDispatch } from 'react-redux';
 import { appSelector, appActions } from '../../redux/appRedux';
+import Loading from '../../components/Loading';
 
 
 const drawerWidth = 280
@@ -204,6 +205,7 @@ const DahsboardLayout = () => {
                 <Toolbar />
                 <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                 <Outlet/>
+                <Loading/>
                 </Container>
         </Box>
         </Box>

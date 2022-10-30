@@ -52,30 +52,10 @@ const handleChange = (e) =>{
     })
 }
 
-const handleSubmit = async () => {
-    if(data.name === ""){
-        await setHashErr(true)
-        await setErrors(err=>{
-            return({
-                ...errors,
-                name: "El Nombre no puede estar en blanco"
-            })
-        })
-    }
-    if(data.age === ""){
-        await setHashErr(true)
-        await setErrors(err=>{
-            return({
-                ...errors,    
-                age: "La Edad no puede estar en blanco"
-            })
-        })
-    }
-    if(hashErr){
-        console.log("no es Valido")
-    }else{
-        console.log("Validado")
-        }
+const handleSubmit =  () => {
+    dispatch(appActions.loading(true))
+    
+    
     }
     
     return (
