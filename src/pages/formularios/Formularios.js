@@ -39,7 +39,7 @@ const Formularios = () => {
     const [hashErr, setHashErr]= useState(false)
 
     useEffect(() =>{ 
-        dispatch(appActions.setPageTitle("FORMULARIOS"))
+        dispatch(appActions.setPageTitle("LISTAS"))
         
     }   ,[])
 
@@ -51,12 +51,14 @@ const handleChange = (e) =>{
         })
     })
 }
+const d = (v) =>{
+    dispatch(appActions.loading(v))
+}
 
-const handleSubmit =  () => {
-    dispatch(appActions.loading(true))
-    
-    
-    }
+const handleSubmit = async () => {
+    d(true)
+    setTimeout(d, 2000, false)
+}
     
     return (
         <Grid container spacing={3}>
@@ -102,6 +104,6 @@ const handleSubmit =  () => {
                 </Card>
             </Grid>
         </Grid>
-    ); 
+     ); 
 };
 export default Formularios;
