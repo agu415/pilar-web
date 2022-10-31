@@ -43,22 +43,22 @@ const Formularios = () => {
         
     }   ,[])
 
-const handleChange = (e) =>{
-    setData(prev=>{
-        return({
-            ...prev,
-            [e.target.name]: e.target.value,
+    const handleChange = (e) =>{
+        setData(prev=>{
+            return({
+                ...prev,
+                [e.target.name]: e.target.value,
+            })
         })
-    })
-}
-const d = (v) =>{
-    dispatch(appActions.loading(v))
-}
+    }
+    const d = (v) => {
+        dispatch(appActions.loading(v))
+    }
 
-const handleSubmit = async () => {
-    d(true)
-    setTimeout(d, 2000, false)
-}
+    const handleSubmit = async () => {
+        d(true)
+        setTimeout(d, 2000, false)
+    }
     
     return (
         <Grid container spacing={3}>

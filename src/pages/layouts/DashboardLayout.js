@@ -178,12 +178,21 @@ const DahsboardLayout = () => {
                     <Box px={2} sx={{cursor:"pointer"}} >
                         <MenuIcon sx={{color:"white"}} onClick={()=>setOpen(true)} />
                     </Box>
-                    <Stack direction="row" spacing={2}>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }} >
+                    <Stack direction="row" spacing={2} width="90%" justifyContent="end">
+                    <Typography component="h1" variant="h6" color="inherit" noWrap display="inline" >
                         Pilar Tecno Web
                     </Typography>
-                    <Divider orientation='vertical'  variant='middle' flexItem/>
-                    <Typography component="h1" variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }} >
+                    <Divider orientation="vertical"
+							variant="middle"
+							flexItem
+							sx={{ color: "white" }}
+							display="inline"/>
+                    <Typography component="h1"
+							variant="h6"
+							color="inherit"
+							noWrap
+							sx={{ flexGrow: 1 }}
+							display="inline" >
                         {pageTitle}
                     </Typography>
                     </Stack>
